@@ -9,7 +9,7 @@ before_install:
   - npm i
 
 script:
-  - npm run dev
+  - npm run prod
 
 deploy:
   provider: pages
