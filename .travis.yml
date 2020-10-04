@@ -5,7 +5,7 @@ node_js:
 cache: npm
 
 before_install:
-  - nvm i -g npm@12
+  - nvm i npm@12
 
 script:
   - npm run prod
