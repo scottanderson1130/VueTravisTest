@@ -7,7 +7,7 @@ cache:
     - node_modules
 
 before_install:
-  - npm install
+  - npm i
 
 script:
   - npm run prod
