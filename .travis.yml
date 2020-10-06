@@ -13,10 +13,21 @@ script:
   - npm run dev
 
 deploy:
-  provider: s3
-  access_key_id: $AWS_KEY
-  secret_access_key: $AWS_SECRET
-  bucket: 'myvotebucket'
-  skip_cleanup: true
-  acl: public_read
-  local_dir: public
+  - provider: s3
+  # rest of S3 deployment for MyApp.zip
+  # ⋮
+  - provider: codedeploy
+    access_key_id: $AWS_KEY
+    secret_access_key: $AWS_SECRET
+    bucket: vuetravistest
+    key: latest/MyApp.zip
+    application: VueTravisTest
+    deployment_group: VueTravisTest-Dev
+# deploy:
+#   provider: s3
+#   access_key_id: $AWS_KEY
+#   secret_access_key: $AWS_SECRET
+#   bucket: 'myvotebucket'
+#   skip_cleanup: true
+#   acl: public_read
+#   local_dir: public
