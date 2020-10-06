@@ -10,17 +10,22 @@ before_install:
   - npm i
 
 script:
-  - npm run dev
+  - npm run prod
+
+artifacts:
+  files:
+    - "**/*"
+    dicard-paths: no
+    base-directory: dist
 
 deploy:
   # - provider: s3
   # rest of S3 deployment for MyApp.zip
   # ⋮
-  - provider: codedeploy
+  - provider: s3
     access_key_id: $AWS_KEY
     secret_access_key: $AWS_SECRET
     bucket: vuetravistest
-    key: latest/MyApp.zip
     application: VueTravisTest
     deployment_group: VueTravisTest-Dev
 # deploy:
