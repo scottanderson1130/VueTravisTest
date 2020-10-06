@@ -12,14 +12,13 @@ before_install:
 script:
   - npm run prod
 
-artifacts:
-  files:
-    - "**/*"
-    dicard-paths: no
-    base-directory: dist
+# artifacts:
+#   files:
+#     - "**/*"
+#     dicard-paths: no
+#     base-directory: dist
 
 deploy:
-  
   - provider: s3
     access_key_id: $AWS_KEY
     secret_access_key: $AWS_SECRET
