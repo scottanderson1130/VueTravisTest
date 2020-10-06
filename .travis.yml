@@ -11,36 +11,12 @@ before_install:
 
 script:
   - npm run dev
-# deploy:
-#   provider: pages
-#   github-token: $GITHUB_TOKEN
-#   on:
-#     branch: master
-
-# script:
-#   - npm run dev
 
 deploy:
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    local_dir: dpl_cd_upload
-    skip_cleanup: true
-    on: &2
-      repo: scottanderson1130/VueTravisTest
-    bucket: VueTravisTest
-    region: us-east-1
-  - provider: codedeploy
-    access_key_id: $AWS_ACCESS_KEY
-    secret_access_key: $AWS_SECRET_KEY
-    bucket: VueTravisTest
-    key: latest.zip
-    bundle_type: zip
-    application: VueTravisTest
-    # deployment_group: CodeDeployDeploymentGroupNameHERE
-    region: us-east-1
-    on: *2
-#   script:
-#   - zip -r latest *
-#   - mkdir -p dpl_cd_upload
-#   - mv latest.zip dpl_cd_upload/latest.zip
+  provider: s3
+  access_key_id: $AWS_KEY
+  secret_access_key: $AWS_SECRET
+  bucket: 'myvotebucket'
+  skip_cleanup: true
+  acl: public_read
+  local_dir: public
