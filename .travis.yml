@@ -11,20 +11,19 @@ before_install:
 
 script:
   - npm run prod
-
-deploy:
-  - provider: s3
-    access_key_id: $AWS_KEY
-    secret_access_key: $AWS_SECRET
-    local_dir: build
-    skip_cleanup: true
-    bucket: vuetravistest
-    application: VueTravisTest
-    deployment_group: VueTravisTest-Dev
-  - provider: codedeploy
-    access_key_id: $AWS_KEY
-    secret_access_key: $AWS_SECRET
-    bucket: vuetravistest
-    application: VueTravisTest
-    deployment_group: VueTravisTest-Dev
-    region: us-east-1
+# deploy:
+#   - provider: s3
+#     access_key_id: $AWS_KEY
+#     secret_access_key: $AWS_SECRET
+#     local_dir: build
+#     skip_cleanup: true
+#     bucket: vuetravistest
+#     application: VueTravisTest
+#     deployment_group: VueTravisTest-Dev
+#   - provider: codedeploy
+#     access_key_id: $AWS_KEY
+#     secret_access_key: $AWS_SECRET
+#     bucket: vuetravistest
+#     application: VueTravisTest
+#     deployment_group: VueTravisTest-Dev
+#     region: us-east-1
